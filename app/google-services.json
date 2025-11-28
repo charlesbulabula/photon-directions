@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "398819439338",
+    "project_id": "photon-580b0",
+    "storage_bucket": "photon-580b0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398819439338:android:5cba420e87355942b3dd93",
+        "android_client_info": {
+          "package_name": "com.neo.maps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwfmviq3mRppTFspGBf1ygUf0BzB5WRH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

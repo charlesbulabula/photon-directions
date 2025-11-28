@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/directions_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/photon_background">
+
+    <!-- Map container -->
+    <FrameLayout
+        android:id="@+id/map_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Small camera preview overlay anchored to the map container -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/camera_preview"
+        android:layout_width="120dp"
+        android:layout_height="180dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="top|end" />
+
+    <!-- Top search bar over the map -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/search_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/photon_surface"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:layout_gravity="top">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/search_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/searchInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/searchButton"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/search"
+                android:src="@android:drawable/ic_menu_search" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Capture status card anchored to the map container -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/capture_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/photon_surface"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="16dp"
+        android:layout_gravity="bottom">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Titre -->
+            <TextView
+                android:id="@+id/capture_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Secure Capture"
+                android:textStyle="bold"
+                android:textColor="@color/photon_on_surface"
+                android:textSize="18sp" />
+
+            <!-- Statut -->
+            <TextView
+                android:id="@+id/capture_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dir_status_idle"
+                android:textColor="@color/photon_on_surface"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp" />
+
+            <!-- Upload progress bar -->
+            <ProgressBar
+                android:id="@+id/uploadProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="4dp"
+                android:max="100"
+                android:progress="0"
+                android:visibility="gone" />
+
+            <!-- Ligne badge + intervalle -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/capture_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Uploads enabled"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:textColor="@color/photon_on_surface"
+                    android:textSize="12sp"
+                    android:background="@drawable/badge_ok_background" />
+
+                <TextView
+                    android:id="@+id/intervalValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="5 s"
+                    android:textColor="@color/photon_on_surface"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Ligne switch + bouton refresh -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Capture"
+                        android:textColor="@color/photon_on_surface"
+                        android:textSize="14sp"
+                        android:layout_marginEnd="8dp" />
+
+                    <Switch
+                        android:id="@+id/captureToggle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnRefreshConfig"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Refresh config" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

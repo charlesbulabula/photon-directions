@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">PHOTON – Directions</string>
+    <string name="splash_title">PHOTON</string>
+    <string name="splash_subtitle">Secure Directions Capture</string>
+    <string name="badge_secure_capture">End-to-End Encrypted Capture</string>
+    <string name="badge_zero_copy">Zero-Copy In-Memory</string>
+    <string name="badge_tls">Mutual TLS 1.3</string>
+
+    <string name="dir_status_idle">Idle – directions view open</string>
+    <string name="dir_status_capturing">Capturing frames every %1$d s</string>
+    <string name="dir_status_paused">Capture paused</string>
+    <string name="dir_status_error">Capture stopped due to error</string>
+
+    <string name="permission_camera_rationale">Camera permission is required to capture frames along your route.</string>
+    <string name="permission_location_rationale">Location permission is required to attach GPS coordinates to frames.</string>
+
+    <string name="search_hint">Search destination</string>
+    <string name="search">Search</string>
+    <string name="error_title">Something went wrong</string>
+    <string name="error_retry">Retry</string>
+    <string name="error_dismiss">Dismiss</string>
+    <string name="permissions_required">Camera and location permissions are required for secure capture.</string>
+    <string name="network_unavailable">No network connection. Please connect to the internet to start secure capture.</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_privacy_header">Privacy &amp; Security</string>
+    <string name="settings_privacy_body">PHOTON captures frames locally, signs metadata, and uploads over mutual TLS with certificate pinning. No UI elements or personal content outside of navigation are persisted on disk.</string>
+    <string name="settings_wifi_only">Upload on Wi‑Fi only</string>
+    <string name="onboarding_title">Welcome to PHOTON – Directions</string>
+    <string name="onboarding_body">PHOTON securely captures directions imagery along your route.\n\n• Frames are kept in memory and wiped after upload\n• Metadata is signed with Ed25519\n• Uploads go through mutual TLS with certificate pinning\n\nYou stay in control with a kill-switch, Wi‑Fi-only mode and detailed settings.</string>
+    <string name="onboarding_get_started">Get started</string>
+</resources>
